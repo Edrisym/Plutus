@@ -1,0 +1,6 @@
+@Plutus.Api_HostAddress = http://localhost:5169
+
+GET {{Plutus.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
