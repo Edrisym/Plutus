@@ -9,24 +9,27 @@ public class Currency : BaseEntity<int>
     }
 
     private Currency(
+        string title,
         string code,
         string description,
         double ratio)
     {
+        Title = title;
         Code = code;
         Description = description;
         Ratio = ratio;
     }
 
-    public string Code { get; set; }
-    public string Description { get; set; }
-    public double Ratio { get; set; }
+    public string Code { get; private set; }
+    public string Title { get; private set; }
+    public string Description { get; private set; }
+    public double Ratio { get; private set; }
 
     #region Domain Method
 
-    public static Currency Create(string code, string description, double ratio)
+    public static Currency Create(string title, string code, string description, double ratio)
     {
-        return new Currency(code, description, ratio);
+        return new Currency(title, code, description, ratio);
     }
 
     #endregion
