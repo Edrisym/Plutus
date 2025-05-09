@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Plutus.Domain.Common;
 using Plutus.Persistence;
 using Scalar.AspNetCore;
 
@@ -14,7 +15,8 @@ public static class Program
         services.AddControllers();
 
         services.AddDbContext<PlutusDbContext>(options =>
-            options.UseNpgsql(builder.Configuration.GetConnectionString("PlutusPostgres")));
+            options.UseNpgsql(
+                builder.Configuration.GetConnectionString(StaticData.ConnectionStrings.PlutusPostgresDb)));
 
         var app = builder.Build();
 
