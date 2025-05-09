@@ -8,22 +8,24 @@ public class Transaction : BaseEntity<Guid>
     {
     }
 
-    private Transaction(double amount, int from, int to)
+    private Transaction(decimal amount, int from, int to, TransactionState state)
     {
         Amount = amount;
         From = from;
         To = to;
+        State = state;
     }
 
-    public double Amount { get; set; }
-    public int From { get; set; }
-    public int To { get; set; }
+    public decimal Amount { get; private set; }
+    public int From { get; private set; }
+    public int To { get; private set; }
+    public TransactionState State { get; private set; }
 
     #region Domain Methods
 
-    public static Transaction Create(double amount, int from, int to)
+    public static Transaction Create(decimal amount, int from, int to, TransactionState state)
     {
-        return new Transaction(amount, from, to);
+        return new Transaction(amount, from, to, state);
     }
 
     #endregion

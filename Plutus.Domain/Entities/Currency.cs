@@ -12,7 +12,7 @@ public class Currency : BaseEntity<int>
         string title,
         string code,
         string description,
-        double ratio)
+        decimal ratio)
     {
         Title = title;
         Code = code;
@@ -23,11 +23,11 @@ public class Currency : BaseEntity<int>
     public string Code { get; private set; }
     public string Title { get; private set; }
     public string Description { get; private set; }
-    public double Ratio { get; private set; }
+    public decimal Ratio { get; private set; }
 
     #region Domain Method
 
-    public static Currency Create(string title, string code, string description, double ratio)
+    public static Currency Create(string title, string code, string description, decimal ratio)
     {
         return new Currency(title, code, description, ratio);
     }

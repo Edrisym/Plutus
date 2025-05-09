@@ -10,7 +10,7 @@ public class Wallet : BaseEntity<int>
     {
     }
 
-    private Wallet(double balance,
+    private Wallet(decimal balance,
         string description,
         int currencyId)
     {
@@ -19,7 +19,7 @@ public class Wallet : BaseEntity<int>
         CurrencyId = currencyId;
     }
 
-    public double Balance { get; set; }
+    public decimal Balance { get; set; }
     public string Description { get; set; }
     public int CurrencyId { get; set; }
 
@@ -28,7 +28,7 @@ public class Wallet : BaseEntity<int>
 
     #region Domain Methods
 
-    public static Wallet Create(double balance, string description, int currencyId)
+    public static Wallet Create(decimal balance, string description, int currencyId)
         => new Wallet(balance, description, currencyId);
 
     #endregion
